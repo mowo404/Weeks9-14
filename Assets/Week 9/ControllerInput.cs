@@ -9,7 +9,7 @@ public class ControllerInput : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        
+
     }
 
     // Update is called once per frame
@@ -30,7 +30,7 @@ public class ControllerInput : MonoBehaviour
     {
 
         //context phase tells us what the system is registering from held, released and pressed button...s
-        Debug.Log("Attack Time!( " + context.phase +" )!");
+        Debug.Log("Attack Time!( " + context.phase + " )!");
 
     }
 
