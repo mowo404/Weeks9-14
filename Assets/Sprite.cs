@@ -22,7 +22,7 @@ public class Sprite : MonoBehaviour
     {
         spriteIndex += 1;
 
-        spriteRenderer.sprite = sprites[spriteIndex];
+     
 
     }
 }
