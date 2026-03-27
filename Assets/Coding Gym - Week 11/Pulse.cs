@@ -22,9 +22,9 @@ public class Pulse : MonoBehaviour
         Vector3 movement = new Vector3(movementSpeed, 0, 0);
         transform.position += movement;
 
-        if (transform.position.x > 9)
+        if (transform.position.x > 0)
         {
-            transform.position -= movement * -1;
+            transform.position = movement * -1;
         }
 
         if (transform.position.x > -9)
