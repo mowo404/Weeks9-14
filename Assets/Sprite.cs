@@ -17,12 +17,4 @@ public class Sprite : MonoBehaviour
     {
         
     }
-
-    public void ChangeSprite()
-    {
-        spriteIndex += 1;
-
-        spriteRenderer.sprite = sprites[spriteIndex];
-
-    }
 }
