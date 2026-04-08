@@ -1,6 +1,7 @@
-using UnityEngine;
-using UnityEngine.InputSystem;
 using System.Collections.Generic;
+using UnityEngine;
+using UnityEngine.Events;
+using UnityEngine.InputSystem;
 
 public class BeeMovement : MonoBehaviour
 {
@@ -8,6 +9,8 @@ public class BeeMovement : MonoBehaviour
     public float distance;
     public Vector2 movement;
     public List<GameObject> flowers;
+    public UnityEvent pollination;
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -29,19 +32,24 @@ public class BeeMovement : MonoBehaviour
     {
         if (context.performed == true)
         {
-            //looping through each flower in the list to check if the bee is near it, if it near one of the flowers then run the pollinate function called from the flower script.
-            for (int i = 0; i < flowers.Count; i++)
+            //call pollination event when space is pressed 
+            pollination.Invoke();
+        }
+    }
+
+    public void OnPollinate()
+    {
+        //looping through each flower in the list to check if the bee is near it, if it near one of the flowers then run the pollinate function called from the flower script.
+        for (int i = 0; i < flowers.Count; i++)
+        {
+            GameObject currentFlower = flowers[i];
+            float distance = Vector3.Distance(transform.position, currentFlower.transform.position);
+            if (distance <= 2f)
             {
-                GameObject currentFlower = flowers[i];
-                float distance = Vector3.Distance(transform.position, currentFlower.transform.position);
-                if (distance <= 2f)
-                {
-                    Flower flowerscript = currentFlower.GetComponent<Flower>();
-                    flowerscript.Pollinate();
-                }
-               
+                Flower flowerscript = currentFlower.GetComponent<Flower>();
+                flowerscript.Pollinate();
             }
-            
+
         }
     }
 }

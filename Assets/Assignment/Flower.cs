@@ -8,7 +8,7 @@ public class Flower : MonoBehaviour
 {
     public float increase;
     public Slider pollinationbar;
-    public UnityEvent pollination;
+    
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
