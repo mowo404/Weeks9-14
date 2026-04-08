@@ -5,6 +5,7 @@ using System.Collections.Generic;
 public class BeeMovement : MonoBehaviour
 {
     public float speed = 1.0f;
+    public float distance;
     public Vector2 movement;
     public List<GameObject> flowers;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
@@ -32,8 +33,13 @@ public class BeeMovement : MonoBehaviour
             for (int i = 0; i < flowers.Count; i++)
             {
                 GameObject currentFlower = flowers[i];
-                Flower flowerscript = currentFlower.GetComponent<Flower>();
-                flowerscript.Pollinate();
+                float distance = Vector3.Distance(transform.position, currentFlower.transform.position);
+                if (distance <= 2f)
+                {
+                    Flower flowerscript = currentFlower.GetComponent<Flower>();
+                    flowerscript.Pollinate();
+                }
+               
             }
             
         }

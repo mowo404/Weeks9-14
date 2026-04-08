@@ -26,7 +26,7 @@ public class Flower : MonoBehaviour
 
         if (increase  <= 1)
         {
-            increase += 0.5f;
+            increase += 0.15f;
         }
     }
 
