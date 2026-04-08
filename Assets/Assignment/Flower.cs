@@ -38,6 +38,7 @@ public class Flower : MonoBehaviour
 
     public void onBloom()
     {
+        //if poliation bar is full then change the sprite to the bloom spire!
         if(increase >= 1)
         {
             thisSprite.sprite = Bloom;
